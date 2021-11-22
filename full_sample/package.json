@@ -1,5 +1,5 @@
 {
-  "name": "bm-nodejs-client-v2",
+  "name": "./bm-nodejs-echo-bot/resources/bm-agent-service-account-credentials.json",
   "version": "0.0.0",
   "private": true,
   "scripts": {
