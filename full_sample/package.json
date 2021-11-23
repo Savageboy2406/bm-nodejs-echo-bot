@@ -1,5 +1,118 @@
-{
-  "name": "bm-nodejs-client-v2",
+{<properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <!-- REQUIRED by appengine-maven-plugin plugin, if web.xml does not exist for your application -->
+    <failOnMissingWebXml>false</failOnMissingWebXml>
+    <!-- [END_EXCLUDE] -->
+
+  </properties>
+  <!-- [END properties] -->
+
+  <dependencies>
+    <!-- App Engine SDK dependency : only required if you need to explicitly use App Engine API -->
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>appengine-api-1.0-sdk</artifactId>
+      <version>1.9.63</version>
+    </dependency>
+    <!-- [START servlet] -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <type>jar</type>
+      <scope>provided</scope>
+    </dependency>
+    <!-- [END servlet] -->
+
+    <dependency>
+      <groupId>com.google.apis</groupId>
+      <artifactId>google-api-services-businessmessages</artifactId>
+      <version>1.25.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.api-client</groupId>
+      <artifactId>google-api-client</artifactId>
+      <version>1.23.0</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava-jdk5</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>io.grpc</groupId>
+      <artifactId>grpc-core</artifactId>
+      <version>1.7.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.oauth-client</groupId>
+      <artifactId>google-oauth-client</artifactId>
+      <version>1.23.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.api-client</groupId>
+      <artifactId>google-api-client-appengine</artifactId>
+      <version>1.30.10</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.http-client</groupId>
+      <artifactId>google-http-client-jackson2</artifactId>
+      <version>1.23.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>20.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-dialogflow</artifactId>
+      <version>0.64.0-alpha</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-pubsub</artifactId>
+      <version>1.48.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>appengine-remote-api</artifactId>
+      <version>1.9.63</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>appengine-api-1.0-sdk</artifactId>
+      <version>1.9.63</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <!-- for hot reload of the web application-->
+    <outputDirectory>
+      ${project.build.directory}/${project.build.finalName}/WEB-INF/classes
+    <gcloud config set project PROJECT_ID
+gcloud app create
+mvn appengine:deploy>
+    <plugins>
+      <!-- [START cloudplugin] -->
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>appengine-maven-plugin</artifactId>
+        <version>1.3.1</version>
+      </plugin>
+      <!-- [END cloudplugin] -->
+    </plugins>
+  </build>
+</project>
+  "name": "./bm-java-echo-bot/src/main/resources/bm-agent-service-account-credentials.json",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -21,4 +134,4 @@
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.9.1"
   }
-}
+
